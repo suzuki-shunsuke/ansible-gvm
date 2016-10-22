@@ -1,0 +1,12 @@
+---
+# tasks file for gvm
+- name: Clone moovweb/gvm
+  ghq:
+    name: moovweb/gvm
+    executable: "{{gvm_ghq_executable}}"
+- name: Notice
+  debug:
+    msg: "export GVM_ROOT=$GHQ_ROOT/github.com/moovweb/gvm"
+- name: Notice
+  debug:
+    msg: ". $GVM_ROOT/scripts/gvm-default"
