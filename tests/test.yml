@@ -1,0 +1,7 @@
+---
+- include: setup.yml
+- hosts: default
+  roles:
+  - suzuki-shunsuke.ghq-module
+  - role: ansible-gvm
+    gvm_ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
