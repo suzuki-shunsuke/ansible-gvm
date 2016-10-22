@@ -25,10 +25,9 @@ Example Playbook
 
 ```yaml
 - hosts: servers
-  vars:
-    pyenv_ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
   roles:
-  - suzuki-shunsuke.gvm
+  - role: suzuki-shunsuke.gvm
+    gvm_ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
 ```
 
 License
