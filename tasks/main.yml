@@ -3,7 +3,7 @@
 - name: Clone moovweb/gvm
   ghq:
     name: moovweb/gvm
-    executable: "{{gvm_ghq_executable}}"
+    executable: "{{ghq_executable}}"
 - name: Notice
   debug:
     msg: "export GVM_ROOT=$GHQ_ROOT/github.com/moovweb/gvm"

@@ -13,7 +13,7 @@ Requirements
 Role Variables
 --------------
 
-* gvm_ghq_executable: The ghq command path. The default is "ghq".
+* ghq_executable: The ghq command path. The default is "ghq".
 
 Dependencies
 ------------
@@ -27,7 +27,7 @@ Example Playbook
 - hosts: servers
   roles:
   - role: suzuki-shunsuke.gvm
-    gvm_ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
+    ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
 ```
 
 License
