@@ -1,8 +1,7 @@
 ---
-- include: setup.yml
-- hosts: default
-  vars:
-    ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
+- hosts: all
   roles:
-  - suzuki-shunsuke.ghq-module
-  - ansible-gvm
+  - git
+  - role: ansible-gvm
+    gvm_is_dependencies_installed: yes
+    gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"

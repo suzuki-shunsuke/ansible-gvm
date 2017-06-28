@@ -1,24 +1,30 @@
-gvm
-=====
+# gvm
 
 [![Build Status](https://travis-ci.org/suzuki-shunsuke/ansible-gvm.svg?branch=master)](https://travis-ci.org/suzuki-shunsuke/ansible-gvm)
 
-Install [gvm](https://github.com/moovweb/gvm).
+ansible role to install [gvm](https://github.com/moovweb/gvm)
 
-Requirements
-------------
+## Requirements
 
-* [motemen/ghq](https://github.com/motemen/ghq)
+* git
 
-Role Variables
---------------
+## Role Variables
 
-* ghq_executable: The ghq command path. The default is "ghq".
+name | required | default | description
+--- | --- | --- | ---
+gvm_root | no | $GVM_ROOT >> $HOME/.gvm
+gvm_is_dependencies_installed | no | no | By default build dependencies are not installed
+gvm_rc_path | no | "NOT ADD" | By default configuration is not added
+gvm_darwin_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
+gvm_redhat_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
+gvm_debian_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
+
+About build dependencies, see also [here](https://github.com/moovweb/gvm#mac-os-x-requirements).
 
 Dependencies
 ------------
 
-* [suzuki-shunsuke.ghq-module](https://galaxy.ansible.com/suzuki-shunsuke/ghq-module/)
+Nothing.
 
 Example Playbook
 ----------------
@@ -27,10 +33,13 @@ Example Playbook
 - hosts: servers
   roles:
   - role: suzuki-shunsuke.gvm
-    ghq_executable: "{{ansible_env.HOME}}/.go/bin/ghq"
+    gvm_root: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb/gvm"
+    gvm_is_dependencies_installed: yes
+    gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
+    gvm_darwin_build_dependencies:
+    - readline
 ```
 
-License
--------
+## License
 
-MIT
+[MIT](LICENSE)

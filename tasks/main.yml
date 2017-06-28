@@ -1,12 +1,27 @@
 ---
 # tasks file for gvm
-- name: Clone moovweb/gvm
-  ghq:
-    name: moovweb/gvm
-    executable: "{{ghq_executable}}"
-- name: Notice
-  debug:
-    msg: "export GVM_ROOT=$GHQ_ROOT/github.com/moovweb/gvm"
-- name: Notice
-  debug:
-    msg: ". $GVM_ROOT/scripts/gvm-default"
+# https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer
+- name: Create directories
+  file:
+    dest: "{{ gvm_root | dirname }}"
+    state: directory
+- name: Clone gvm
+  git:
+    repo: https://github.com/moovweb/gvm
+    dest: "{{ gvm_root }}"
+- block:
+  - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
+    lineinfile:
+      dest: "{{ gvm_rc_path }}"
+      line: 'export GVM_ROOT="{{ gvm_root }}"'
+      regexp: '^export GVM_ROOT='
+      create: yes
+  - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
+    lineinfile:
+      dest: "{{ gvm_rc_path }}"
+      line: '. $GVM_ROOT/scripts/gvm-default'
+      create: yes
+  when: gvm_rc_path != "NOT ADD"
+- include: "{{ gvm_os_families.get(ansible_os_family, 'default') }}.yml"
+  static: no
+  when: gvm_is_dependencies_installed and ansible_os_family in gvm_os_families

@@ -4,6 +4,7 @@ python: "2.7"
 
 sudo: required
 dist: trusty
+group: deprecated-2017Q2
 
 addons:
   apt:
@@ -13,14 +14,11 @@ addons:
     - ansible
 
 before_install:
-- cd tests
 - ansible --version
-
-install:
-- ansible-galaxy install -r roles.yml
+- cd tests
 
 script:
-- ansible-playbook -i inventory-local test.yml
+- ansible-playbook -i localhost test.yml
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
