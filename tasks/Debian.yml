@@ -1,0 +1,7 @@
+- name: Install build dependencies
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  items: "{{ gvm_debian_build_dependencies }}"
+  become: "{{ gvm_nonroot }}"
+  when: gvm_is_dependencies_installed
