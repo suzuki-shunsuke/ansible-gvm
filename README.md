@@ -1,4 +1,4 @@
-# gvm
+# ansible-gvm
 
 [![Build Status](https://travis-ci.org/suzuki-shunsuke/ansible-gvm.svg?branch=master)](https://travis-ci.org/suzuki-shunsuke/ansible-gvm)
 
@@ -21,13 +21,11 @@ gvm_debian_build_dependencies | no | see [defaults/main.yml](https://github.com/
 
 About build dependencies, see also [here](https://github.com/moovweb/gvm#mac-os-x-requirements).
 
-Dependencies
-------------
+## Dependencies
 
 Nothing.
 
-Example Playbook
-----------------
+## Example Playbook
 
 ```yaml
 - hosts: servers
