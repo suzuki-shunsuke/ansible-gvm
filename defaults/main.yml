@@ -1,6 +1,9 @@
 ---
 # defaults file for gvm
 gvm_root: "{{ ansible_env.get('GVM_ROOT', '{}/.gvm'.format(ansible_env.HOME)) }}"
+gvm_repo: https://github.com/moovweb/gvm
+gvm_version: HEAD
+gvm_update: yes
 gvm_is_dependencies_installed: no
 gvm_rc_path: NOT ADD
 # https://github.com/moovweb/gvm#mac-os-x-requirements

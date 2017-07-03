@@ -7,8 +7,10 @@
     state: directory
 - name: Clone gvm
   git:
-    repo: https://github.com/moovweb/gvm
+    repo: "{{ gvm_repo }}"
     dest: "{{ gvm_root }}"
+    version: "{{ gvm_version }}"
+    update: "{{ gvm_update }}"
 - block:
   - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
     lineinfile:

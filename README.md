@@ -15,6 +15,9 @@ name | required | default | description
 gvm_root | no | $GVM_ROOT >> $HOME/.gvm
 gvm_is_dependencies_installed | no | no | By default build dependencies are not installed
 gvm_rc_path | no | "NOT ADD" | By default configuration is not added
+gvm_repo | no | https://github.com/moovweb/gvm |
+gvm_version | no | HEAD |
+gvm_update | no | yes |
 gvm_darwin_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
 gvm_redhat_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
 gvm_debian_build_dependencies | no | see [defaults/main.yml](https://github.com/suzuki-shunsuke/ansible-gvm/blob/master/defaults/main.yml) | If gvm_is_dependencies_installed is "no" this is ignored
@@ -36,6 +39,8 @@ Nothing.
     gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
     gvm_darwin_build_dependencies:
     - readline
+    gvm_version: 1.0.22
+    gvm_update: no
 ```
 
 ## License
