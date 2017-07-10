@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/suzuki-shunsuke/ansible-gvm/compare/v5.0.0...v5.1.0) (2017-07-10)
+
+
+### Features
+
+* create required directories (gvm-default) ([8eebc86](https://github.com/suzuki-shunsuke/ansible-gvm/commit/8eebc86))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/suzuki-shunsuke/ansible-gvm/compare/v4.0.0...v5.0.0) (2017-07-10)
 
