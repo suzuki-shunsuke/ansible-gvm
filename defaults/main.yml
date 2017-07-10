@@ -1,6 +1,5 @@
 ---
 # defaults file for gvm
-gvm_dest: "{{ ansible_env.HOME }}"
 gvm_root: "{{ ansible_env.get('GVM_ROOT', '{}/.gvm'.format(ansible_env.HOME)) }}"
 gvm_repo: https://github.com/moovweb/gvm
 gvm_version: HEAD
