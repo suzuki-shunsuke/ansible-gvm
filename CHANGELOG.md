@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/suzuki-shunsuke/ansible-gvm/compare/v4.0.0...v5.0.0) (2017-07-10)
+
+
+### Bug Fixes
+
+* remove gvm_dest and gvm_name and recovery gvm_root option ([4db074d](https://github.com/suzuki-shunsuke/ansible-gvm/commit/4db074d))
+
+
+### BREAKING CHANGES
+
+* remove the gvm_dest parameter
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/suzuki-shunsuke/ansible-gvm/compare/3.1.0...v4.0.0) (2017-07-10)
 
