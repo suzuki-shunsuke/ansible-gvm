@@ -8,6 +8,3 @@
     gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
     gvm_version: 1.0.20
     gvm_update: no
-  - role: ansible-gvm
-    gvm_is_dependencies_installed: yes
-    gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
