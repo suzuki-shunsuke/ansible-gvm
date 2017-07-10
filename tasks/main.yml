@@ -1,9 +1,15 @@
 ---
 # tasks file for gvm
 # https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer
+- name: set gvm_name
+  set_fact:
+    gvm_name: "{{ (gvm_dest == ansible_env.HOME) | ternary('.gvm', 'gvm')}}"
+- name: set gvm_root
+  set_fact:
+    gvm_root: "{{ gvm_dest }}/{{ gvm_name }}"
 - name: Create directories
   file:
-    dest: "{{ gvm_root | dirname }}"
+    dest: "{{ gvm_dest }}"
     state: directory
 - name: Clone gvm
   git:
@@ -15,15 +21,35 @@
   - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
     lineinfile:
       dest: "{{ gvm_rc_path }}"
+      line: '[[ -s "{{ gvm_root }}/scripts/gvm" ]] && source "{{ gvm_root }}/scripts/gvm"'
+      regexp: '^\[\[ -s ".*/scripts/gvm" \]\] && source ".*/scripts/gvm"$'
+      create: yes
+  - name: Add configurations to $GVM_DEST/$GVM_NAME/scripts/gvm
+    lineinfile:
+      dest: "{{ gvm_root }}/scripts/gvm"
       line: 'export GVM_ROOT="{{ gvm_root }}"'
       regexp: '^export GVM_ROOT='
       create: yes
-  - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
+  - name: Add configurations to $GVM_DEST/$GVM_NAME/scripts/gvm
     lineinfile:
-      dest: "{{ gvm_rc_path }}"
+      dest: "{{ gvm_root }}/scripts/gvm"
       line: '. $GVM_ROOT/scripts/gvm-default'
       create: yes
   when: gvm_rc_path != "NOT ADD"
+- block:
+  - name: create directories
+    file:
+      name: "{{ gvm_root }}/{{ item }}"
+      state: directory
+    items:
+    - environments
+    - pkgsets/system/global
+    - gos/system
+  - name: create $GVM_DEST/$GVM_NAME/environments/system
+    template:
+      src: system
+      dest: "{{ gvm_root }}/environments/system"
+  when: gvm_goroot is not undefined
 - include: "{{ gvm_os_families.get(ansible_os_family, 'default') }}.yml"
   static: no
   when: gvm_is_dependencies_installed and ansible_os_family in gvm_os_families

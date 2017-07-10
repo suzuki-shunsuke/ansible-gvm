@@ -4,6 +4,11 @@
 
 ansible role to install [gvm](https://github.com/moovweb/gvm)
 
+This role is based on [the official gvm-installer](https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer).
+
+> ## Notice: GVM == Go (Not Groovy) Version Manager
+> This role has nothing to do with [Groovy enVironment Manager](http://sdkman.io/).
+
 ## Requirements
 
 * git
@@ -12,7 +17,8 @@ ansible role to install [gvm](https://github.com/moovweb/gvm)
 
 name | required | default | description
 --- | --- | --- | ---
-gvm_root | no | $GVM_ROOT >> $HOME/.gvm
+gvm_dest | no | `$HOME` | If `gvm_dest == $HOME`, the gvm repository is cloned to `$HOME/.gvm`, otherwise to `{{ gvm_dest }}/gvm`
+gvm_goroot | no | `undefined` |
 gvm_is_dependencies_installed | no | no | By default build dependencies are not installed
 gvm_rc_path | no | "NOT ADD" | By default configuration is not added
 gvm_repo | no | https://github.com/moovweb/gvm |
@@ -34,7 +40,7 @@ Nothing.
 - hosts: servers
   roles:
   - role: suzuki-shunsuke.gvm
-    gvm_root: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb/gvm"
+    gvm_dest: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb"
     gvm_is_dependencies_installed: yes
     gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
     gvm_darwin_build_dependencies:
