@@ -1,4 +1,13 @@
+# Common
+**/*.log
+
+# Vagrant
 .vagrant
+
+# Ansible
 *.retry
 tests/_roles/*
 !tests/_roles/.gitkeep
+
+# Node.js
+node_modules
