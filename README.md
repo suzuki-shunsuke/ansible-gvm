@@ -49,6 +49,10 @@ Nothing.
     gvm_update: no
 ```
 
+## Change Log
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 [MIT](LICENSE)
