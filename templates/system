@@ -1,7 +1,7 @@
 # Automatically generated file. DO NOT EDIT!
-export GVM_ROOT; GVM_ROOT="{{ gvm_dest }}/{{ gvm_name }}"
+export GVM_ROOT; GVM_ROOT="{{ gvm_root }}"
 export gvm_go_name; gvm_go_name="system"
 export gvm_pkgset_name; gvm_pkgset_name="global"
 export GOROOT; GOROOT="{{ gvm_go_root }}"
-export GOPATH; GOPATH="{{ gvm_dest }}/{{ gvm_name }}/pkgsets/system/global"
-export PATH; PATH="{{ gvm_dest }}/{{ gvm_name }}/pkgsets/system/global/bin:$GOROOT/bin:$GVM_ROOT/bin:\$PATH"
+export GOPATH; GOPATH="{{ gvm_root }}/pkgsets/system/global"
+export PATH; PATH="{{ gvm_root }}/pkgsets/system/global/bin:$GOROOT/bin:$GVM_ROOT/bin:\$PATH"

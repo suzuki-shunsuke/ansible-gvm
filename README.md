@@ -17,7 +17,7 @@ This role is based on [the official gvm-installer](https://github.com/moovweb/gv
 
 name | required | default | description
 --- | --- | --- | ---
-gvm_dest | no | `$HOME` | If `gvm_dest == $HOME`, the gvm repository is cloned to `$HOME/.gvm`, otherwise to `{{ gvm_dest }}/gvm`
+gvm_root | no | `$HOME/.gvm` |
 gvm_goroot | no | `undefined` |
 gvm_is_dependencies_installed | no | no | By default build dependencies are not installed
 gvm_rc_path | no | "NOT ADD" | By default configuration is not added
@@ -40,7 +40,7 @@ Nothing.
 - hosts: servers
   roles:
   - role: suzuki-shunsuke.gvm
-    gvm_dest: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb"
+    gvm_root: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb/gvm"
     gvm_is_dependencies_installed: yes
     gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
     gvm_darwin_build_dependencies:

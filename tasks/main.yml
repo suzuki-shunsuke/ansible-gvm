@@ -1,15 +1,9 @@
 ---
 # tasks file for gvm
 # https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer
-- name: set gvm_name
-  set_fact:
-    gvm_name: "{{ (gvm_dest == ansible_env.HOME) | ternary('.gvm', 'gvm')}}"
-- name: set gvm_root
-  set_fact:
-    gvm_root: "{{ gvm_dest }}/{{ gvm_name }}"
 - name: Create directories
   file:
-    dest: "{{ gvm_dest }}"
+    dest: "{{ gvm_root | dirname }}"
     state: directory
 - name: Clone gvm
   git:
@@ -24,13 +18,13 @@
       line: '[[ -s "{{ gvm_root }}/scripts/gvm" ]] && source "{{ gvm_root }}/scripts/gvm"'
       regexp: '^\[\[ -s ".*/scripts/gvm" \]\] && source ".*/scripts/gvm"$'
       create: yes
-  - name: Add configurations to $GVM_DEST/$GVM_NAME/scripts/gvm
+  - name: Add configurations to $GVM_ROOT/scripts/gvm
     lineinfile:
       dest: "{{ gvm_root }}/scripts/gvm"
       line: 'export GVM_ROOT="{{ gvm_root }}"'
       regexp: '^export GVM_ROOT='
       create: yes
-  - name: Add configurations to $GVM_DEST/$GVM_NAME/scripts/gvm
+  - name: Add configurations to $GVM_ROOT/scripts/gvm
     lineinfile:
       dest: "{{ gvm_root }}/scripts/gvm"
       line: '. $GVM_ROOT/scripts/gvm-default'
@@ -45,7 +39,7 @@
     - environments
     - pkgsets/system/global
     - gos/system
-  - name: create $GVM_DEST/$GVM_NAME/environments/system
+  - name: create $GVM_ROOT/environments/system
     template:
       src: system
       dest: "{{ gvm_root }}/environments/system"
