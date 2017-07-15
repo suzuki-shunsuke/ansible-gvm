@@ -53,6 +53,10 @@ Nothing.
 
 See [CHANGELOG.md](CHANGELOG.md).
 
+## See also
+
+* [suzuki-shunsuke.gvm-module](https://github.com/suzuki-shunsuke/ansible-gvm-module): ansible module to run `gvm` command
+
 ## License
 
 [MIT](LICENSE)
