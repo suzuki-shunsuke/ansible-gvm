@@ -8,20 +8,20 @@ gvm_is_dependencies_installed: no
 gvm_rc_path: NOT ADD
 # https://github.com/moovweb/gvm#mac-os-x-requirements
 gvm_debian_build_dependencies:
-- curl
-- git
-- mercurial
-- make
-- binutils
-- bison
-- gcc
-- build-essential
+  - curl
+  - git
+  - mercurial
+  - make
+  - binutils
+  - bison
+  - gcc
+  - build-essential
 gvm_redhat_build_dependencies:
-- curl
-- git
-- make
-- bison
-- gcc
-- glibc-devel
+  - curl
+  - git
+  - make
+  - bison
+  - gcc
+  - glibc-devel
 gvm_darwin_build_dependencies:
-- mercurial
+  - mercurial

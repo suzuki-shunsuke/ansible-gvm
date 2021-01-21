@@ -39,14 +39,14 @@ Nothing.
 ```yaml
 - hosts: servers
   roles:
-  - role: suzuki-shunsuke.gvm
-    gvm_root: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb/gvm"
-    gvm_is_dependencies_installed: yes
-    gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
-    gvm_darwin_build_dependencies:
-    - readline
-    gvm_version: 1.0.22
-    gvm_update: no
+    - role: suzuki-shunsuke.gvm
+      gvm_root: "{{ ansible_env.HOME }}/.ghq/github.com/moovweb/gvm"
+      gvm_is_dependencies_installed: yes
+      gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
+      gvm_darwin_build_dependencies:
+        - readline
+      gvm_version: 1.0.22
+      gvm_update: no
 ```
 
 ## Change Log

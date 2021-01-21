@@ -36,19 +36,19 @@
     name: "{{ gvm_root }}/{{ item }}"
     state: directory
   items:
-  - logs
-  - gos
-  - archive/packages
-  - environments
+    - logs
+    - gos
+    - archive/packages
+    - environments
 - block:
   - name: create directories
     file:
       name: "{{ gvm_root }}/{{ item }}"
       state: directory
     items:
-    - environments
-    - pkgsets/system/global
-    - gos/system
+      - environments
+      - pkgsets/system/global
+      - gos/system
   - name: create $GVM_ROOT/environments/system
     template:
       src: system
