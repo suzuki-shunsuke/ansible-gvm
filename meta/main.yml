@@ -1,16 +1,17 @@
+---
 galaxy_info:
-  author: Suzuki Shunsuke
+  author: Shunsuke Suzuki
   description: Install gvm
   license: MIT
   min_ansible_version: 2.2
   github_branch: master
 
   platforms:
-  - name: GenericLinux
-  - name: Darwin
+    - name: GenericLinux
+    - name: Darwin
 
   galaxy_tags:
-  - go
-  - gvm
+    - go
+    - gvm
 
 dependencies: []
