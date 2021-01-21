@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/suzuki-shunsuke/ansible-gvm.svg?branch=master)](https://travis-ci.org/suzuki-shunsuke/ansible-gvm)
 
-ansible role to install [gvm](https://github.com/moovweb/gvm)
+Ansible Role to install [gvm](https://github.com/moovweb/gvm)
 
 This role is based on [the official gvm-installer](https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer).
 
@@ -11,7 +11,7 @@ This role is based on [the official gvm-installer](https://github.com/moovweb/gv
 
 ## Requirements
 
-* git
+* Git
 
 ## Role Variables
 
@@ -51,7 +51,7 @@ Nothing.
 
 ## Change Log
 
-See [CHANGELOG.md](CHANGELOG.md).
+See [Releases](https://github.com/suzuki-shunsuke/ansible-gvm/releases).
 
 ## See also
 
