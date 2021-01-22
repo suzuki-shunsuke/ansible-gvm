@@ -1,0 +1,5 @@
+---
+exclude_paths:
+  - .direnv
+skip_list:
+  - 106

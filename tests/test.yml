@@ -1,10 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
+  remote_user: root
   roles:
-    - role: geerlingguy.git
-      become: "{{ (ansible_env.USER is undefined) | ternary(ansible_env.HOME != '/root', ansible_env.USER != 'root') }}"
-    - role: ansible-gvm
-      gvm_is_dependencies_installed: yes
-      gvm_rc_path: "{{ ansible_env.HOME }}/.bashrc"
-      gvm_version: 1.0.20
-      gvm_update: no
+    - ansible-gvm
