@@ -1,7 +1,5 @@
 # ansible-gvm
 
-[![Build Status](https://travis-ci.org/suzuki-shunsuke/ansible-gvm.svg?branch=master)](https://travis-ci.org/suzuki-shunsuke/ansible-gvm)
-
 Ansible Role to install [gvm](https://github.com/moovweb/gvm)
 
 This role is based on [the official gvm-installer](https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer).

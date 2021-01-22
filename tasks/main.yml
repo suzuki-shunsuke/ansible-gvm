@@ -33,9 +33,9 @@
 # https://github.com/moovweb/gvm/blob/master/scripts/gvm-default
 - name: create directories (gvm-default)
   file:
-    name: "{{ gvm_root }}/{{ item }}"
+    path: "{{ gvm_root }}/{{ item }}"
     state: directory
-  items:
+  loop:
     - logs
     - gos
     - archive/packages
@@ -45,7 +45,7 @@
     file:
       name: "{{ gvm_root }}/{{ item }}"
       state: directory
-    items:
+    loop:
       - environments
       - pkgsets/system/global
       - gos/system

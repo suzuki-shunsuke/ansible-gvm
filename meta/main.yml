@@ -3,7 +3,7 @@ galaxy_info:
   author: Shunsuke Suzuki
   description: Install gvm
   license: MIT
-  min_ansible_version: 2.2
+  min_ansible_version: 2.5
   github_branch: master
 
   platforms:
