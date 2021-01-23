@@ -10,7 +10,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install "molecule[docker,lint]"
-          which molecule
-          molecule test
       - name: test
-        run: molecule test
+        run: |
+          export "PATH=/home/runner/.local/bin:$PATH"
+          molecule test
