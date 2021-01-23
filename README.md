@@ -1,5 +1,9 @@
 # ansible-gvm
 
+[![Build Status](https://github.com/suzuki-shunsuke/ansible-gvm/workflows/CI/badge.svg)](https://github.com/suzuki-shunsuke/ansible-gvm/actions)
+[![GitHub last commit](https://img.shields.io/github/last-commit/suzuki-shunsuke/ansible-gvm.svg)](https://github.com/suzuki-shunsuke/ansible-gvm)
+[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/suzuki-shunsuke/ansible-gvm/master/LICENSE)
+
 Ansible Role to install [gvm](https://github.com/moovweb/gvm)
 
 This role is based on [the official gvm-installer](https://github.com/moovweb/gvm/blob/master/binscripts/gvm-installer).
