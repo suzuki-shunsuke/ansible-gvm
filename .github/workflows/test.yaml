@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install ansible
-        run: pip install ansible molecule
+        run: |
+          pip install --upgrade pip
+          pip install molecule
       - name: test
         run: molecule test
