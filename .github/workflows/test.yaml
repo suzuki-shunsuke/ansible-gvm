@@ -6,9 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install ansible
+      - name: install molecule
         run: |
           pip install --upgrade pip
-          pip install molecule
+          pip install "molecule[docker,lint]"
       - name: test
         run: molecule test
