@@ -1,0 +1,12 @@
+---
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install ansible
+        run: pip install ansible molecule
+      - name: test
+        run: molecule test
