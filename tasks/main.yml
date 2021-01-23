@@ -5,12 +5,17 @@
   file:
     dest: "{{ gvm_root | dirname }}"
     state: directory
+- name: check gvm_root
+  ansible.builtin.stat:
+    path: "{{ gvm_root }}"
+  register: st
 - name: Clone gvm
   git:
     repo: "{{ gvm_repo }}"
     dest: "{{ gvm_root }}"
     version: "{{ gvm_version }}"
     update: "{{ gvm_update }}"
+  when: not st.stat.exists
 - block:
   - name: Add configurations to ~/.bashrc, ~/.profile, or ~/.zshrc or etc
     lineinfile:
