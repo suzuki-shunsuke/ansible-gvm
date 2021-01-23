@@ -59,6 +59,5 @@
       src: system
       dest: "{{ gvm_root }}/environments/system"
   when: gvm_goroot is not undefined
-- include: "{{ gvm_os_families.get(ansible_os_family, 'default') }}.yml"
-  static: no
+- include_tasks: "{{ gvm_os_families.get(ansible_os_family, 'default') }}.yml"
   when: gvm_is_dependencies_installed and ansible_os_family in gvm_os_families
