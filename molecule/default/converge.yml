@@ -5,3 +5,6 @@
     - name: "Include ansible-gvm"
       include_role:
         name: "ansible-gvm"
+      vars:
+        gvm_rc_path: "/root/.bashrc"
+        gvm_is_dependencies_installed: yes
