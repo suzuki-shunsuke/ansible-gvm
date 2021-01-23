@@ -3,5 +3,4 @@
   apt:
     name: "{{ gvm_debian_build_dependencies }}"
     update_cache: yes
-  become: "{{ gvm_nonroot }}"
   when: gvm_is_dependencies_installed
